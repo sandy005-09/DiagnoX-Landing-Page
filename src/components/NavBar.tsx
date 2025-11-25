@@ -15,7 +15,7 @@ export function NavBar() {
     const handleScroll = () => {
       const sections = ['hero', 'features', 'about', 'contact'];
       const navHeight = 72;
-      
+
       // Find which section is currently in view
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.getElementById(sections[i]);
@@ -48,11 +48,10 @@ export function NavBar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`fixed left-0 right-0 top-0 z-50 transition-colors ${
-        theme === 'dark'
-          ? 'bg-[#0d0d0d] border-b border-[#C0C0C0]/40'
-          : 'bg-white border-b border-gray-200'
-      }`}
+      className={`fixed left-0 right-0 top-0 z-50 transition-colors ${theme === 'dark'
+        ? 'bg-[#0d0d0d] border-b border-[#C0C0C0]/40'
+        : 'bg-white border-b border-gray-200'
+        }`}
     >
       <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-[72px]">
         {/* Logo */}
@@ -64,10 +63,10 @@ export function NavBar() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          <img 
-            alt="DiagnoX Logo" 
-            className="h-full w-full object-contain" 
-            src={theme === 'dark' ? darkModeLogo : lightModeLogo} 
+          <img
+            alt="DiagnoX Logo"
+            className="h-full w-full object-contain"
+            src={theme === 'dark' ? darkModeLogo : lightModeLogo}
           />
         </motion.button>
 
@@ -84,15 +83,14 @@ export function NavBar() {
                 window.scrollTo({ top: y, behavior: 'smooth' });
               }
             }}
-            className={`font-['Poppins:SemiBold',sans-serif] text-[16px] tracking-[-0.08px] leading-[1.45] cursor-pointer transition-colors ${
-              activeSection === 'features'
-                ? theme === 'dark'
-                  ? 'text-[#ffffff]'
-                  : 'text-gray-900'
-                : theme === 'dark'
-                  ? 'text-[#C0C0C0] hover:text-[#ffffff]'
-                  : 'text-gray-600 hover:text-gray-900'
-            }`}
+            className={`font-body-semibold text-[16px] leading-[1.45] cursor-pointer transition-colors ${activeSection === 'features'
+              ? theme === 'dark'
+                ? 'text-[#ffffff]'
+                : 'text-gray-900'
+              : theme === 'dark'
+                ? 'text-[#C0C0C0] hover:text-[#ffffff]'
+                : 'text-gray-600 hover:text-gray-900'
+              }`}
           >
             Features
           </motion.button>
@@ -107,15 +105,14 @@ export function NavBar() {
                 window.scrollTo({ top: y, behavior: 'smooth' });
               }
             }}
-            className={`font-['Poppins:SemiBold',sans-serif] text-[16px] tracking-[-0.08px] leading-[1.45] cursor-pointer transition-colors ${
-              activeSection === 'about'
-                ? theme === 'dark'
-                  ? 'text-[#ffffff]'
-                  : 'text-gray-900'
-                : theme === 'dark'
-                  ? 'text-[#C0C0C0] hover:text-[#ffffff]'
-                  : 'text-gray-600 hover:text-gray-900'
-            }`}
+            className={`font-body-semibold text-[16px] leading-[1.45] cursor-pointer transition-colors ${activeSection === 'about'
+              ? theme === 'dark'
+                ? 'text-[#ffffff]'
+                : 'text-gray-900'
+              : theme === 'dark'
+                ? 'text-[#C0C0C0] hover:text-[#ffffff]'
+                : 'text-gray-600 hover:text-gray-900'
+              }`}
           >
             About Us
           </motion.button>
@@ -130,29 +127,27 @@ export function NavBar() {
                 window.scrollTo({ top: y, behavior: 'smooth' });
               }
             }}
-            className={`font-['Poppins:SemiBold',sans-serif] text-[16px] tracking-[-0.08px] leading-[1.45] cursor-pointer transition-colors ${
-              activeSection === 'contact'
-                ? theme === 'dark'
-                  ? 'text-[#ffffff]'
-                  : 'text-gray-900'
-                : theme === 'dark'
-                  ? 'text-[#C0C0C0] hover:text-[#ffffff]'
-                  : 'text-gray-600 hover:text-gray-900'
-            }`}
+            className={`font-body-semibold text-[16px] leading-[1.45] cursor-pointer transition-colors ${activeSection === 'contact'
+              ? theme === 'dark'
+                ? 'text-[#ffffff]'
+                : 'text-gray-900'
+              : theme === 'dark'
+                ? 'text-[#C0C0C0] hover:text-[#ffffff]'
+                : 'text-gray-600 hover:text-gray-900'
+              }`}
           >
             Contact
           </motion.button>
-          
+
           {/* Theme Toggle */}
           <motion.button
             whileHover={{ scale: 1.1, rotate: 180 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleTheme}
-            className={`rounded-full p-2 transition-colors ${
-              theme === 'dark'
-                ? 'bg-white/10 hover:bg-white/20'
-                : 'bg-gray-100 hover:bg-gray-200'
-            }`}
+            className={`rounded-full p-2 transition-colors ${theme === 'dark'
+              ? 'bg-white/10 hover:bg-white/20'
+              : 'bg-gray-100 hover:bg-gray-200'
+              }`}
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
@@ -165,13 +160,12 @@ export function NavBar() {
           {/* CTA Button */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <button
-              className={`group relative font-['Poppins:SemiBold',sans-serif] h-[56px] gap-[10px] rounded-[8px] px-[24px] py-[16px] overflow-hidden transition-all duration-300 ${
-                theme === 'dark'
+              className={`group relative font-body-semibold h-[56px] gap-[10px] rounded-[8px] px-[24px] py-[16px] overflow-hidden transition-all duration-300 ${theme === 'dark'
+                ? 'bg-white text-black'
+                : isInWaitlistSection
                   ? 'bg-white text-black'
-                  : isInWaitlistSection
-                    ? 'bg-white text-black'
-                    : 'bg-transparent text-white group-hover:text-black'
-              }`}
+                  : 'bg-transparent text-white group-hover:text-black'
+                }`}
               style={{
                 border: theme === 'dark'
                   ? 'none'
@@ -188,26 +182,24 @@ export function NavBar() {
                 }
               }}
             >
-              <span className={`relative z-10 transition-colors duration-300 ${
-                theme === 'dark'
-                  ? isInWaitlistSection ? 'text-white' : 'group-hover:text-white'
-                  : isInWaitlistSection ? 'text-black' : 'text-white group-hover:text-black'
-              }`}>
+              <span className={`relative z-10 transition-colors duration-300 ${theme === 'dark'
+                ? isInWaitlistSection ? 'text-white' : 'group-hover:text-white'
+                : isInWaitlistSection ? 'text-black' : 'text-white group-hover:text-black'
+                }`}>
                 Join Waitlist
               </span>
               {/* Gradient overlay with metallic stroke */}
-              <div 
-                className={`absolute inset-0 transition-all duration-300 ${
-                  theme === 'dark'
-                    ? isInWaitlistSection ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                    : isInWaitlistSection ? 'opacity-0 group-hover:opacity-0' : 'opacity-100 group-hover:opacity-0'
-                }`}
+              <div
+                className={`absolute inset-0 transition-all duration-300 ${theme === 'dark'
+                  ? isInWaitlistSection ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  : isInWaitlistSection ? 'opacity-0 group-hover:opacity-0' : 'opacity-100 group-hover:opacity-0'
+                  }`}
                 style={{
                   background: 'radial-gradient(circle at center, #0D0D0D 24%, #0A0D20 78%, #000D57 96%)',
                   borderRadius: '8px',
                   boxShadow: theme === 'dark'
-                    ? (isInWaitlistSection 
-                      ? 'inset 0 0 0 0.8px rgba(232, 232, 232, 0.8), 0 0 20px rgba(232, 232, 232, 0.6), 0 0 40px rgba(184, 184, 184, 0.4)' 
+                    ? (isInWaitlistSection
+                      ? 'inset 0 0 0 0.8px rgba(232, 232, 232, 0.8), 0 0 20px rgba(232, 232, 232, 0.6), 0 0 40px rgba(184, 184, 184, 0.4)'
                       : 'inset 0 0 0 0.8px rgba(232, 232, 232, 0.8)')
                     : (isInWaitlistSection
                       ? 'inset 0 0 0 0.8px rgba(232, 232, 232, 0.8)'
@@ -215,12 +207,11 @@ export function NavBar() {
                 }}
               />
               {/* White background overlay for hover in light mode */}
-              <div 
-                className={`absolute inset-0 transition-all duration-300 ${
-                  theme === 'dark'
-                    ? 'opacity-0'
-                    : isInWaitlistSection ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                }`}
+              <div
+                className={`absolute inset-0 transition-all duration-300 ${theme === 'dark'
+                  ? 'opacity-0'
+                  : isInWaitlistSection ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`}
                 style={{
                   background: 'white',
                   borderRadius: '8px',

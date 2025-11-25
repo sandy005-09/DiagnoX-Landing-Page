@@ -15,31 +15,31 @@
 export const FONTS = {
   // Primary branding font (Instrument Serif Regular)
   // Used for: Main hero titles, logo text
-  branding: "font-['Instrument_Serif:Regular',serif]",
-  
+  branding: "font-branding",
+
   // Large heading font (Instrument Serif Regular)
   // Used for: Section titles, large headings
-  heading: "font-['Instrument_Serif:Regular',serif]",
-  
+  heading: "font-branding",
+
   // Secondary heading font (Instrument Serif Regular with sans-serif fallback)
   // Used for: Secondary headings, subsection titles
-  subheading: "font-['Instrument_Serif:Regular',sans-serif]",
-  
+  subheading: "font-branding",
+
   // Body text font (Poppins Regular)
   // Used for: Paragraphs, descriptions, general text
-  body: "font-['Poppins:Regular',sans-serif]",
-  
+  body: "font-body",
+
   // Medium weight body font (Poppins Medium)
   // Used for: Emphasized body text, hero subtitle, footer navigation
-  bodyMedium: "font-['Poppins:Medium',sans-serif]",
-  
+  bodyMedium: "font-body font-medium",
+
   // Semi-bold body font (Poppins SemiBold)
   // Used for: Navigation links, buttons, form labels, important text
-  bodySemiBold: "font-['Poppins:SemiBold',sans-serif]",
-  
+  bodySemiBold: "font-body font-semibold",
+
   // Navigation font (Poppins Medium)
   // Used for: Footer navigation, secondary navigation
-  nav: "font-['Poppins:Medium',sans-serif]",
+  nav: "font-body font-medium",
 } as const;
 
 // Type for font keys - useful for type-safe font selection

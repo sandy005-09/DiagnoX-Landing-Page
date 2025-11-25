@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Instagram, Linkedin, CheckCircle2, Sparkles } from 'lucide-react';
+import { Instagram, Linkedin, CheckCircle2, Sparkles, Loader2 } from 'lucide-react';
 import { Input } from './components/ui/input';
 import { ThemeProvider, useTheme } from './components/ThemeProvider';
 import { NavBar } from './components/NavBar';
@@ -33,11 +33,10 @@ function HeroSection() {
   return (
     <section
       id="hero"
-      className={`relative h-[752px] w-full overflow-clip ${
-        theme === 'dark'
-          ? 'bg-gradient-to-b from-[#0d0d0d] from-[73.676%] via-[#070d32] via-[102.02%] to-[#000d57] to-[113.83%]'
-          : 'bg-gradient-to-b from-gray-50 via-blue-50 to-blue-100'
-      }`}
+      className={`relative h-[752px] w-full overflow-clip ${theme === 'dark'
+        ? 'bg-gradient-to-b from-[#0d0d0d] from-[73.676%] via-[#070d32] via-[102.02%] to-[#000d57] to-[113.83%]'
+        : 'bg-gradient-to-b from-gray-50 via-blue-50 to-blue-100'
+        }`}
     >
       {/* Glowing blue gradient at bottom - reduced glow */}
       <div
@@ -67,8 +66,8 @@ function HeroSection() {
                 ? `0 0 ${particle.size * 2}px rgba(107, 147, 232, 0.8), 0 0 ${particle.size * 4}px rgba(59, 130, 246, 0.6)`
                 : `0 0 ${particle.size * 2}px rgba(59, 130, 246, 0.6), 0 0 ${particle.size * 4}px rgba(147, 197, 253, 0.4)`,
             }}
-            initial={{ 
-              y: 0, 
+            initial={{
+              y: 0,
               opacity: 0,
               scale: 0
             }}
@@ -98,14 +97,13 @@ function HeroSection() {
             <AnimatedHeroText text="The Intelligence" delay={0.3} />
             <AnimatedHeroText text="Behind Every Drive" delay={0.7} />
           </div>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className={`h-[54px] w-[551px] ${FONTS.bodySemiBold} text-[16px] leading-[1.3] tracking-normal ${
-              theme === 'dark' ? '' : 'text-black'
-            }`}
+            className={`h-[54px] w-[551px] font-body-semibold text-[16px] leading-[1.3] tracking-normal ${theme === 'dark' ? '' : 'text-black'
+              }`}
             style={theme === 'dark' ? {
               background: 'linear-gradient(135deg, #B8B8B8 0%, #E8E8E8 50%, #B8B8B8 100%)',
               WebkitBackgroundClip: 'text',
@@ -124,7 +122,7 @@ function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.9 }}
           className="relative mb-[-264px] flex items-center justify-center"
-          style={{ 
+          style={{
             height: 'calc(1px * ((1780.75 * 0.008380573242902756) + (1186 * 0.9999648928642273)))',
             width: 'calc(1px * ((1186 * 0.008380573242902756) + (1780.75 * 0.9999648928642273)))'
           }}
@@ -160,9 +158,8 @@ function FeaturesSection() {
   return (
     <section
       id="features"
-      className={`relative flex items-center justify-center scroll-mt-[44px] ${
-        theme === 'dark' ? 'bg-[#000000]' : 'bg-white'
-      }`}
+      className={`relative flex items-center justify-center scroll-mt-[44px] ${theme === 'dark' ? 'bg-[#000000]' : 'bg-white'
+        }`}
       style={{ height: '812px' }}
     >
       <div className="flex flex-col items-center" style={{ width: '1440px', padding: '24px', gap: '10px' }}>
@@ -174,9 +171,9 @@ function FeaturesSection() {
           className="flex flex-col items-center text-center"
           style={{ width: '1200px', gap: '36px' }}
         >
-          <h2 
+          <h2
             className={FONTS.heading}
-            style={{ 
+            style={{
               fontSize: '64px',
               lineHeight: '100%',
               letterSpacing: '0.5%',
@@ -185,7 +182,7 @@ function FeaturesSection() {
           >
             What do we offer?
           </h2>
-          
+
           <BentoGrid />
         </motion.div>
       </div>
@@ -226,12 +223,12 @@ function AboutUsSection() {
   return (
     <section id="about" className="relative overflow-hidden" style={{ height: '1504px' }}>
       {/* First Part: How does DiagnoX work ? - 752px with silver background */}
-      <div 
+      <div
         className={`relative ${theme === 'dark' ? 'bg-[#000000]' : 'bg-gray-50'}`}
         style={{ height: '752px' }}
       >
         {/* Floating Mockup Image */}
-        <div 
+        <div
           className="absolute pointer-events-none z-0"
           style={{
             right: '-592px',
@@ -249,7 +246,7 @@ function AboutUsSection() {
               className="size-full object-contain"
               style={{ opacity: 0.15 }}
             />
-            
+
             {/* Subtle pulsing glow aura - both modes */}
             <motion.div
               className="absolute inset-0"
@@ -321,9 +318,8 @@ function AboutUsSection() {
             transition={{ duration: 0.8 }}
             className="relative z-10"
           >
-            <h2 className={`mb-12 ${FONTS.subheading} text-[108px] leading-[1.04] tracking-[-3.786px] ${
-              theme === 'dark' ? 'text-white/90' : 'text-black'
-            }`}>
+            <h2 className={`mb-12 ${FONTS.subheading} text-[108px] leading-[1.04] tracking-[-3.786px] ${theme === 'dark' ? 'text-white/90' : 'text-black'
+              }`}>
               How does <br />DiagnoX work ?
             </h2>
 
@@ -339,17 +335,15 @@ function AboutUsSection() {
                 >
                   {/* Simple bullet circle that matches text shade */}
                   <div
-                    className={`size-6 shrink-0 rounded-full transition-all duration-300 ${
-                      theme === 'dark' 
-                        ? 'bg-white/60 group-hover:bg-white' 
-                        : 'bg-black/60 group-hover:bg-black'
-                    }`}
+                    className={`size-6 shrink-0 rounded-full transition-all duration-300 ${theme === 'dark'
+                      ? 'bg-white/60 group-hover:bg-white'
+                      : 'bg-black/60 group-hover:bg-black'
+                      }`}
                   />
-                  
+
                   {/* Text with subtle grow */}
-                  <p className={`${FONTS.body} text-[24px] leading-[1.375] transition-all duration-300 group-hover:scale-105 origin-left ${
-                    theme === 'dark' ? 'text-white/60 group-hover:text-white' : 'text-black/60 group-hover:text-black'
-                  }`}>
+                  <p className={`${FONTS.body} text-[24px] leading-[1.375] transition-all duration-300 group-hover:scale-105 origin-left ${theme === 'dark' ? 'text-white/60 group-hover:text-white' : 'text-black/60 group-hover:text-black'
+                    }`}>
                     {step}
                   </p>
                 </motion.div>
@@ -360,7 +354,7 @@ function AboutUsSection() {
       </div>
 
       {/* Second Part: Why choose DiagnoX ? - 752px */}
-      <motion.div 
+      <motion.div
         className="relative overflow-hidden"
         style={{ height: '752px' }}
         initial={{ opacity: 0 }}
@@ -369,7 +363,7 @@ function AboutUsSection() {
         transition={{ duration: 0.8 }}
       >
         {/* Background Image with subtle fixed parallax effect */}
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             backgroundImage: `url(${imgCarWorkshopBg})`,
@@ -428,6 +422,7 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
   const { theme } = useTheme();
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Generate random particles for contact section - more in light mode
   const contactParticleCount = theme === 'dark' ? 25 : 45;
@@ -441,6 +436,7 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     fetch('https://script.google.com/macros/s/AKfycbxdauy9ygtDkm0tiwP_CDIPd6Wo85qvftzrQUIBwk10IYYmqWucomX-OmSwy2ECYQBt/exec', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -451,11 +447,13 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
       mode: 'no-cors'
     })
       .then(() => {
+        setIsLoading(false);
         setSubmitted(true);
         setEmail('');
       })
       .catch((error) => {
         console.error('Error:', error);
+        setIsLoading(false);
         setSubmitted(true);
         setEmail('');
       });
@@ -470,11 +468,10 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
   return (
     <section
       id="contact"
-      className={`relative overflow-hidden ${
-        theme === 'dark'
-          ? 'bg-gradient-to-b from-[#0d0d0d] from-[73.676%] via-[#070d32] via-[102.02%] to-[#000d57] to-[113.83%]'
-          : 'bg-gradient-to-b from-gray-50 via-blue-50 to-blue-100'
-      }`}
+      className={`relative overflow-hidden ${theme === 'dark'
+        ? 'bg-gradient-to-b from-[#0d0d0d] from-[73.676%] via-[#070d32] via-[102.02%] to-[#000d57] to-[113.83%]'
+        : 'bg-gradient-to-b from-gray-50 via-blue-50 to-blue-100'
+        }`}
       style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
     >
       {/* Glowing blue gradient at bottom - reduced glow */}
@@ -505,8 +502,8 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
                 ? `0 0 ${particle.size * 2}px rgba(107, 147, 232, 0.8), 0 0 ${particle.size * 4}px rgba(59, 130, 246, 0.6)`
                 : `0 0 ${particle.size * 2}px rgba(59, 130, 246, 0.6), 0 0 ${particle.size * 4}px rgba(147, 197, 253, 0.4)`,
             }}
-            initial={{ 
-              y: 0, 
+            initial={{
+              y: 0,
               opacity: 0,
               scale: 0
             }}
@@ -534,14 +531,12 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
           transition={{ duration: 0.6 }}
           className="text-center max-w-5xl"
         >
-          <h2 className={`${FONTS.subheading} text-[96px] leading-[1.2] ${
-            theme === 'dark' ? 'text-white' : 'text-gray-900'
-          }`}>
+          <h2 className={`${FONTS.subheading} text-[96px] leading-[1.2] ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+            }`}>
             Save time, reduce repair bills—
           </h2>
-          <p className={`mb-12 ${FONTS.subheading} text-[64px] leading-[1.3] ${
-            theme === 'dark' ? 'text-white' : 'text-gray-900'
-          }`}>
+          <p className={`mb-12 ${FONTS.subheading} text-[64px] leading-[1.3] ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+            }`}>
             our game-changing product is launching soon.
           </p>
 
@@ -554,14 +549,32 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-16"
           >
-            {submitted ? (
+            {isLoading ? (
+              <div className="flex flex-col items-center justify-center py-8 space-y-4">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 360 }}
+                  transition={{
+                    opacity: { duration: 0.2 },
+                    scale: { duration: 0.2 },
+                    rotate: { duration: 1, repeat: Infinity, ease: "linear" }
+                  }}
+                  className="relative"
+                >
+                  <Loader2 className={`size-12 ${theme === 'dark' ? 'text-white' : 'text-blue-600'}`} />
+                </motion.div>
+                <p className={`${FONTS.body} text-[14px] ${theme === 'dark' ? 'text-white/60' : 'text-gray-600'}`}>
+                  Joining waitlist...
+                </p>
+              </div>
+            ) : submitted ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ 
-                  type: 'spring', 
-                  damping: 15, 
-                  stiffness: 300 
+                transition={{
+                  type: 'spring',
+                  damping: 15,
+                  stiffness: 300
                 }}
                 className="flex flex-col items-center justify-center py-8 space-y-4"
               >
@@ -572,39 +585,37 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.1, duration: 0.4 }}
-                    className={`absolute inset-0 rounded-full ${
-                      theme === 'dark' 
-                        ? 'bg-green-400/10' 
-                        : 'bg-green-500/10'
-                    }`}
+                    className={`absolute inset-0 rounded-full ${theme === 'dark'
+                      ? 'bg-green-400/10'
+                      : 'bg-green-500/10'
+                      }`}
                     style={{ width: '80px', height: '80px', top: '-10px', left: '-10px' }}
                   />
-                  
+
                   {/* Checkmark */}
                   <motion.div
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
-                    transition={{ 
+                    transition={{
                       type: 'spring',
                       damping: 12,
                       stiffness: 200,
                       delay: 0.2
                     }}
                   >
-                    <CheckCircle2 
-                      className={`size-[60px] ${
-                        theme === 'dark' ? 'text-green-400' : 'text-green-500'
-                      }`}
+                    <CheckCircle2
+                      className={`size-[60px] ${theme === 'dark' ? 'text-green-400' : 'text-green-500'
+                        }`}
                       strokeWidth={2}
                     />
                   </motion.div>
-                  
+
                   {/* Sparkles around the checkmark */}
                   {[...Array(3)].map((_, i) => (
                     <motion.div
                       key={i}
                       initial={{ scale: 0, opacity: 0 }}
-                      animate={{ 
+                      animate={{
                         scale: [0, 1, 0],
                         opacity: [0, 1, 0],
                         x: [0, (i - 1) * 25],
@@ -618,15 +629,14 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
                       }}
                       className="absolute top-0 left-1/2"
                     >
-                      <Sparkles 
-                        className={`size-4 ${
-                          theme === 'dark' ? 'text-green-300' : 'text-green-400'
-                        }`}
+                      <Sparkles
+                        className={`size-4 ${theme === 'dark' ? 'text-green-300' : 'text-green-400'
+                          }`}
                       />
                     </motion.div>
                   ))}
                 </div>
-                
+
                 {/* Success Message */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -634,88 +644,80 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
                   transition={{ delay: 0.4 }}
                   className="text-center space-y-2"
                 >
-                  <h4 className={`${FONTS.bodySemiBold} text-[18px] ${
-                    theme === 'dark' ? 'text-green-400' : 'text-green-600'
-                  }`}>
+                  <h4 className={`${FONTS.bodySemiBold} text-[18px] ${theme === 'dark' ? 'text-green-400' : 'text-green-600'
+                    }`}>
                     You're on the Waitlist!
                   </h4>
-                  <p className={`${FONTS.body} text-[14px] ${
-                    theme === 'dark' ? 'text-white/60' : 'text-gray-600'
-                  }`}>
+                  <p className={`${FONTS.body} text-[14px] ${theme === 'dark' ? 'text-white/60' : 'text-gray-600'
+                    }`}>
                     We'll notify you when we launch.
                   </p>
                 </motion.div>
               </motion.div>
             ) : (
               <>
-                <p className={`mb-6 ${FONTS.body} text-[14px] ${
-                  theme === 'dark' ? 'text-white' : 'text-gray-700'
-                }`}>
+                <p className={`mb-6 ${FONTS.body} text-[14px] ${theme === 'dark' ? 'text-white' : 'text-gray-700'
+                  }`}>
                   Wanna be our early customer ?
                 </p>
                 <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4">
-                <Input
-                  type="email"
-                  placeholder="Email id"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className={`h-[48px] w-[320px] rounded-full border ${FONTS.body} text-[14px] px-6 ${
-                    theme === 'dark'
+                  <Input
+                    type="email"
+                    placeholder="Email id"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className={`h-[48px] w-[320px] rounded-full border ${FONTS.body} text-[14px] px-6 ${theme === 'dark'
                       ? 'border-white/20 bg-transparent text-white placeholder:text-gray-400'
                       : 'border-gray-300 bg-white text-gray-900 placeholder:text-gray-500'
-                  }`}
-                />
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <button
-                    type="submit"
-                    className={`group relative h-[44px] px-8 rounded-full ${FONTS.body} text-[14px] overflow-hidden transition-all duration-300 ${
-                      theme === 'dark'
+                      }`}
+                  />
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <button
+                      type="submit"
+                      className={`group relative h-[44px] px-8 rounded-full ${FONTS.body} text-[14px] overflow-hidden transition-all duration-300 ${theme === 'dark'
                         ? 'bg-white text-black'
                         : 'bg-transparent text-white group-hover:text-black'
-                    }`}
-                    style={{
-                      border: 'none',
-                    }}
-                  >
-                    <span className={`relative z-10 transition-colors duration-300 ${
-                      theme === 'dark'
+                        }`}
+                      style={{
+                        border: 'none',
+                      }}
+                    >
+                      <span className={`relative z-10 transition-colors duration-300 ${theme === 'dark'
                         ? 'group-hover:text-white'
                         : 'text-white group-hover:text-black'
-                    }`}>
-                      Join Waitlist
-                    </span>
-                    {/* Gradient overlay with metallic stroke */}
-                    <div 
-                      className={`absolute inset-0 transition-all duration-300 ${
-                        theme === 'dark'
+                        }`}>
+                        Join Waitlist
+                      </span>
+                      {/* Gradient overlay with metallic stroke */}
+                      <div
+                        className={`absolute inset-0 transition-all duration-300 ${theme === 'dark'
                           ? 'opacity-0 group-hover:opacity-100'
                           : 'opacity-100 group-hover:opacity-0'
-                      }`}
-                      style={{
-                        background: 'radial-gradient(circle at center, #0D0D0D 24%, #0A0D20 78%, #000D57 96%)',
-                        borderRadius: '9999px',
-                        boxShadow: theme === 'dark' 
-                          ? 'inset 0 0 0 0.65px rgba(232, 232, 232, 0.8)'
-                          : 'inset 0 0 0 0.65px rgba(232, 232, 232, 0.8), 0 0 20px rgba(232, 232, 232, 0.6), 0 0 40px rgba(184, 184, 184, 0.4)',
-                      }}
-                    />
-                    {/* White background overlay for hover in light mode */}
-                    <div 
-                      className={`absolute inset-0 transition-all duration-300 ${
-                        theme === 'dark'
+                          }`}
+                        style={{
+                          background: 'radial-gradient(circle at center, #0D0D0D 24%, #0A0D20 78%, #000D57 96%)',
+                          borderRadius: '9999px',
+                          boxShadow: theme === 'dark'
+                            ? 'inset 0 0 0 0.65px rgba(232, 232, 232, 0.8)'
+                            : 'inset 0 0 0 0.65px rgba(232, 232, 232, 0.8), 0 0 20px rgba(232, 232, 232, 0.6), 0 0 40px rgba(184, 184, 184, 0.4)',
+                        }}
+                      />
+                      {/* White background overlay for hover in light mode */}
+                      <div
+                        className={`absolute inset-0 transition-all duration-300 ${theme === 'dark'
                           ? 'opacity-0'
                           : 'opacity-0 group-hover:opacity-100'
-                      }`}
-                      style={{
-                        background: 'white',
-                        borderRadius: '9999px',
-                        border: '0.65px solid black',
-                      }}
-                    />
-                  </button>
-                </motion.div>
-              </form>
+                          }`}
+                        style={{
+                          background: 'white',
+                          borderRadius: '9999px',
+                          border: '0.65px solid black',
+                        }}
+                      />
+                    </button>
+                  </motion.div>
+                </form>
               </>
             )}
           </motion.div>
@@ -724,14 +726,12 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
 
       {/* 3. Footer: Learn More, Support & Social Handles */}
       <div className="px-6 pb-8">
-        <div className={`max-w-7xl mx-auto border-t pt-8 ${
-          theme === 'dark' ? 'border-white/20' : 'border-gray-300'
-        }`}>
+        <div className={`max-w-7xl mx-auto border-t pt-8 ${theme === 'dark' ? 'border-white/20' : 'border-gray-300'
+          }`}>
           <div className="flex items-center justify-between">
             {/* Learn More & Support Links */}
-            <nav className={`flex gap-8 ${FONTS.nav} text-[16px] leading-[1.45] tracking-[-0.08px] ${
-              theme === 'dark' ? 'text-white' : 'text-gray-600'
-            }`}>
+            <nav className={`flex gap-8 ${FONTS.nav} text-[16px] leading-[1.45] tracking-[-0.08px] ${theme === 'dark' ? 'text-white' : 'text-gray-600'
+              }`}>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 onClick={onLearnMoreClick}
@@ -755,9 +755,8 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
                   key={label}
                   href={href}
                   whileHover={{ scale: 1.2 }}
-                  className={`transition-colors ${
-                    theme === 'dark' ? 'text-white hover:text-gray-300' : 'text-gray-600 hover:text-gray-900'
-                  }`}
+                  className={`transition-colors ${theme === 'dark' ? 'text-white hover:text-gray-300' : 'text-gray-600 hover:text-gray-900'
+                    }`}
                 >
                   {isCustom ? <Icon size={20} /> : <Icon size={20} />}
                 </motion.a>
@@ -780,17 +779,15 @@ function Footer() {
   ];
 
   return (
-    <footer className={`border-t py-12 ${
-      theme === 'dark'
-        ? 'border-white/50 bg-[#0d0d0d]'
-        : 'border-gray-200 bg-white'
-    }`}>
+    <footer className={`border-t py-12 ${theme === 'dark'
+      ? 'border-white/50 bg-[#0d0d0d]'
+      : 'border-gray-200 bg-white'
+      }`}>
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           {/* Nav Links */}
-          <nav className={`flex gap-8 font-['Inter:Medium',sans-serif] text-[16px] leading-[1.45] tracking-[-0.08px] ${
-            theme === 'dark' ? 'text-white' : 'text-gray-600'
-          }`}>
+          <nav className={`flex gap-8 ${FONTS.nav} text-[16px] leading-[1.45] tracking-[-0.08px] ${theme === 'dark' ? 'text-white' : 'text-gray-600'
+            }`}>
             <motion.a
               whileHover={{ scale: 1.05 }}
               href="#features"
@@ -815,11 +812,10 @@ function Footer() {
                 href={href}
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
-                className={`transition-colors ${
-                  theme === 'dark'
-                    ? 'text-white hover:text-gray-300'
-                    : 'text-gray-700 hover:text-gray-900'
-                }`}
+                className={`transition-colors ${theme === 'dark'
+                  ? 'text-white hover:text-gray-300'
+                  : 'text-gray-700 hover:text-gray-900'
+                  }`}
                 aria-label={label}
               >
                 {isCustom ? <Icon size={24} /> : <Icon className="size-6" />}
@@ -832,11 +828,10 @@ function Footer() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className={`mt-8 text-center ${FONTS.body} text-[14px] ${
-            theme === 'dark'
-              ? 'text-gray-500'
-              : 'text-gray-500'
-          }`}
+          className={`mt-8 text-center ${FONTS.body} text-[14px] ${theme === 'dark'
+            ? 'text-gray-500'
+            : 'text-gray-500'
+            }`}
         >
           <p>© 2025 DiagnoX. All rights reserved.</p>
         </motion.div>
@@ -854,9 +849,8 @@ function AppContent() {
     <>
       <ContactDialog isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       <FAQDialog isOpen={isFAQOpen} onClose={() => setIsFAQOpen(false)} />
-      <div className={`min-h-screen transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-[#0d0d0d]' : 'bg-white'
-      }`}>
+      <div className={`min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'bg-[#0d0d0d]' : 'bg-white'
+        }`}>
         <NavBar />
         <main className="pt-[72px]">
           <HeroSection />

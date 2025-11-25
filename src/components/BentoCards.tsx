@@ -42,7 +42,7 @@ function BentoCard({ title, description, index, width, height, x, y }: BentoCard
       return () => clearInterval(interval);
     }
   }, [isHovered]);
-  
+
   // Format title with line breaks
   const formatTitle = (text: string) => {
     if (text === "Vehicle Health Monitoring") {
@@ -153,7 +153,7 @@ function BentoCard({ title, description, index, width, height, x, y }: BentoCard
     }
     return text;
   };
-  
+
   return (
     <motion.div
       custom={index}
@@ -170,10 +170,10 @@ function BentoCard({ title, description, index, width, height, x, y }: BentoCard
         width: `${width}px`,
         height: `${height}px`,
         padding: '20px',
-        border: isHovered 
+        border: isHovered
           ? theme === 'dark'
             ? `1.5px solid rgba(255, 255, 255, 0.6)`
-            : `1.5px solid rgba(0, 0, 0, 0.5)` 
+            : `1.5px solid rgba(0, 0, 0, 0.5)`
           : `1px solid ${theme === 'dark' ? 'rgba(192, 192, 192, 0.8)' : 'rgba(0, 0, 0, 0.1)'}`,
         borderRadius: '8px',
         background: isHovered
@@ -210,7 +210,7 @@ function BentoCard({ title, description, index, width, height, x, y }: BentoCard
                 rgba(254, 255, 255, ${0.04 + pulseIntensity * 0.015}) 80%, 
                 rgba(255, 255, 255, ${0.02 + pulseIntensity * 0.01}) 90%, 
                 rgba(255, 255, 255, ${0.00 + pulseIntensity * 0.005}) 100%)`
-          : theme === 'dark' 
+          : theme === 'dark'
             ? 'linear-gradient(180deg, rgba(13, 13, 13, 0.45) 0%, rgba(10, 13, 32, 0.60) 100%)'
             : 'linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%)',
         boxShadow: isHovered
@@ -232,7 +232,7 @@ function BentoCard({ title, description, index, width, height, x, y }: BentoCard
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="text-center font-['Instrument_Serif:Regular',serif]"
+            className="text-center font-branding"
             style={{
               paddingLeft: '5px',
               paddingRight: '5px',
@@ -253,7 +253,7 @@ function BentoCard({ title, description, index, width, height, x, y }: BentoCard
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-            className="font-['Poppins:SemiBold',sans-serif]"
+            className="font-body font-semibold"
             style={{
               paddingLeft: '5px',
               paddingRight: '5px',
@@ -277,7 +277,7 @@ function BentoCard({ title, description, index, width, height, x, y }: BentoCard
 export function BentoGrid() {
   // Equal gap between cards
   const gap = 20;
-  
+
   // Calculate positions with equal spacing
   const cards = [
     {
@@ -351,9 +351,9 @@ export function BentoGrid() {
   const totalHeight = 216 + gap + 100 + gap + 220;
 
   return (
-    <div 
+    <div
       className="relative mx-auto"
-      style={{ 
+      style={{
         width: `${totalWidth}px`,
         height: `${totalHeight}px`,
       }}

@@ -70,13 +70,13 @@ export function FAQDialog({ isOpen, onClose }: FAQDialogProps) {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm"
           />
-          
+
           {/* Dialog */}
           <motion.div
             initial={{ opacity: 0, y: 100, x: -50 }}
             animate={{ opacity: 1, y: 0, x: 0 }}
             exit={{ opacity: 0, y: 100, x: -50 }}
-            transition={{ 
+            transition={{
               type: 'spring',
               damping: 25,
               stiffness: 300,
@@ -93,27 +93,24 @@ export function FAQDialog({ isOpen, onClose }: FAQDialogProps) {
             }}
           >
             {/* Header */}
-            <div className={`border-b p-4 ${
-              theme === 'dark' ? 'border-white/10' : 'border-gray-200'
-            }`}>
+            <div className={`border-b p-4 ${theme === 'dark' ? 'border-white/10' : 'border-gray-200'
+              }`}>
               <div className="flex items-center justify-between">
-                <h3 className={`font-['Instrument_Serif:Regular',serif] text-[22px] ${
-                  theme === 'dark' ? 'text-white' : 'text-[#0D0D0D]'
-                }`}>
+                <h3 className={`font-branding text-[22px] ${theme === 'dark' ? 'text-white' : 'text-[#0D0D0D]'
+                  }`}>
                   Frequently Asked Questions
                 </h3>
                 <motion.button
-                  whileHover={{ 
-                    scale: 1.1, 
+                  whileHover={{
+                    scale: 1.1,
                     color: theme === 'dark' ? '#C0C0C0' : '#000d57'
                   }}
                   whileTap={{ scale: 0.9 }}
                   onClick={onClose}
-                  className={`transition-colors ${
-                    theme === 'dark' 
-                      ? 'text-white/70 hover:text-[#C0C0C0]' 
-                      : 'text-black/70 hover:text-[#000d57]'
-                  }`}
+                  className={`transition-colors ${theme === 'dark'
+                    ? 'text-white/70 hover:text-[#C0C0C0]'
+                    : 'text-black/70 hover:text-[#000d57]'
+                    }`}
                 >
                   <X className="size-5" />
                 </motion.button>
@@ -123,7 +120,7 @@ export function FAQDialog({ isOpen, onClose }: FAQDialogProps) {
             {/* FAQ List - Scrollable */}
             <div className="h-[calc(420px-73px)] overflow-y-auto p-4" style={{
               scrollbarWidth: 'thin',
-              scrollbarColor: theme === 'dark' 
+              scrollbarColor: theme === 'dark'
                 ? 'rgba(192, 192, 192, 0.3) transparent'
                 : 'rgba(0, 13, 87, 0.3) transparent',
             }}>
@@ -135,27 +132,26 @@ export function FAQDialog({ isOpen, onClose }: FAQDialogProps) {
                   background: transparent;
                 }
                 div::-webkit-scrollbar-thumb {
-                  background: ${theme === 'dark' 
-                    ? 'rgba(192, 192, 192, 0.3)'
-                    : 'rgba(0, 13, 87, 0.3)'
-                  };
+                  background: ${theme === 'dark'
+                  ? 'rgba(192, 192, 192, 0.3)'
+                  : 'rgba(0, 13, 87, 0.3)'
+                };
                   border-radius: 10px;
                 }
                 div::-webkit-scrollbar-thumb:hover {
                   background: ${theme === 'dark'
-                    ? 'rgba(192, 192, 192, 0.5)'
-                    : 'rgba(0, 13, 87, 0.5)'
-                  };
+                  ? 'rgba(192, 192, 192, 0.5)'
+                  : 'rgba(0, 13, 87, 0.5)'
+                };
                 }
               `}</style>
-              
+
               <div className="space-y-2">
                 {faqData.map((faq, index) => (
-                  <div 
+                  <div
                     key={index}
-                    className={`border-b ${
-                      theme === 'dark' ? 'border-white/8' : 'border-gray-200'
-                    }`}
+                    className={`border-b ${theme === 'dark' ? 'border-white/8' : 'border-gray-200'
+                      }`}
                   >
                     {/* Question */}
                     <motion.button
@@ -163,9 +159,8 @@ export function FAQDialog({ isOpen, onClose }: FAQDialogProps) {
                       className="w-full text-left py-3 flex items-center justify-between gap-3"
                       whileHover={{ x: 2 }}
                     >
-                      <span className={`font-['Poppins:SemiBold',sans-serif] text-[15px] ${
-                        theme === 'dark' ? 'text-[#EDEDED]' : 'text-[#0D0D0D]'
-                      }`}>
+                      <span className={`font-body font-semibold text-[15px] ${theme === 'dark' ? 'text-[#EDEDED]' : 'text-[#0D0D0D]'
+                        }`}>
                         {faq.question}
                       </span>
                       <motion.div
@@ -173,14 +168,13 @@ export function FAQDialog({ isOpen, onClose }: FAQDialogProps) {
                         transition={{ duration: 0.2 }}
                         className="shrink-0"
                       >
-                        <ChevronRight 
-                          className={`size-4 ${
-                            theme === 'dark' ? 'text-[#C0C0C0]' : 'text-[#000d57]'
-                          }`}
+                        <ChevronRight
+                          className={`size-4 ${theme === 'dark' ? 'text-[#C0C0C0]' : 'text-[#000d57]'
+                            }`}
                         />
                       </motion.div>
                     </motion.button>
-                    
+
                     {/* Answer */}
                     <AnimatePresence>
                       {openIndex === index && (
@@ -191,9 +185,8 @@ export function FAQDialog({ isOpen, onClose }: FAQDialogProps) {
                           transition={{ duration: 0.2 }}
                           className="overflow-hidden"
                         >
-                          <p className={`font-['Poppins:Regular',sans-serif] text-[14px] pb-3 pr-6 leading-[1.5] ${
-                            theme === 'dark' ? 'text-white/78' : 'text-black/78'
-                          }`}>
+                          <p className={`font-body text-[14px] pb-3 pr-6 leading-[1.5] ${theme === 'dark' ? 'text-white/78' : 'text-black/78'
+                            }`}>
                             {faq.answer}
                           </p>
                         </motion.div>
