@@ -439,29 +439,26 @@ function WaitlistSection({ onSupportClick, onLearnMoreClick }: { onSupportClick:
     size: 1 + Math.random() * 2,
   }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Using GET method with query parameters for Google Apps Script
-    const params = new URLSearchParams({
-      type: 'waitlist',
-      email: email,
-    });
-    
-    fetch(`https://script.google.com/macros/s/AKfycbxUBc6HAlgbEf7NIkvLN6OjW6VNMk0lHWJj3SNBfYrZIi9gBT0QXTHOxqFIfIoX4JRy/exec?${params.toString()}`, {
-      method: 'GET',
-      mode: 'no-cors',
+    fetch('https://script.google.com/macros/s/AKfycbxdauy9ygtDkm0tiwP_CDIPd6Wo85qvftzrQUIBwk10IYYmqWucomX-OmSwy2ECYQBt/exec', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'waitlist',      // or 'support'
+        email: email           // add subject/message if needed for support
+      }),
+      mode: 'no-cors'
     })
-    .then(() => {
-      setSubmitted(true);
-      setEmail('');
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      // Still show success since no-cors doesn't return response
-      setSubmitted(true);
-      setEmail('');
-    });
+      .then(() => {
+        setSubmitted(true);
+        setEmail('');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        setSubmitted(true);
+        setEmail('');
+      });
   };
 
   const socialLinks = [

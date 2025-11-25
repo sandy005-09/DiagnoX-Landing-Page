@@ -17,33 +17,28 @@ export function ContactDialog({ isOpen, onClose }: ContactDialogProps) {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Using GET with query parameters for better Google Apps Script compatibility
-    const params = new URLSearchParams({
-      type: 'support',
-      email: formData.fromEmail,
-      subject: formData.subject,
-      message: formData.message,
-    });
-    
-    // Send request
-    fetch(`https://script.google.com/macros/s/AKfycbxUBc6HAlgbEf7NIkvLN6OjW6VNMk0lHWJj3SNBfYrZIi9gBT0QXTHOxqFIfIoX4JRy/exec?${params.toString()}`, {
-      method: 'GET',
-      mode: 'no-cors',
+    fetch('https://script.google.com/macros/s/AKfycbxdauy9ygtDkm0tiwP_CDIPd6Wo85qvftzrQUIBwk10IYYmqWucomX-OmSwy2ECYQBt/exec', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'support',
+        email: formData.fromEmail,
+        subject: formData.subject,
+        message: formData.message
+      }),
+      mode: 'no-cors'
     })
-    .then(() => {
-      // Success - show confirmation (stays open until user closes)
-      setSubmitted(true);
-      setFormData({ fromEmail: '', subject: '', message: '' });
-    })
-    .catch((error) => {
-      console.error('Submission error:', error);
-      // With no-cors mode, we still assume success if no network error
-      setSubmitted(true);
-      setFormData({ fromEmail: '', subject: '', message: '' });
-    });
+      .then(() => {
+        setSubmitted(true);
+        setFormData({ fromEmail: '', subject: '', message: '' });
+      })
+      .catch((error) => {
+        console.error('Submission error:', error);
+        setSubmitted(true); // Still show success
+        setFormData({ fromEmail: '', subject: '', message: '' });
+      });
   };
   
   const handleClose = () => {
