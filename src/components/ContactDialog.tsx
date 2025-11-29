@@ -246,8 +246,8 @@ export function ContactDialog({ isOpen, onClose }: ContactDialogProps) {
                 <form onSubmit={handleSubmit} className="space-y-3">
                   {/* Your email */}
                   <div>
-                    <label className={`mb-1.5 block font-body font-semibold text-[12px] ${theme === 'dark' ? 'text-white/80' : 'text-gray-700'
-                      }`}>
+                    <label className={`mb-1.5 block font-body !font-bold text-[13px] ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+                      }`} style={{ fontWeight: 700 }}>
                       Your email
                     </label>
                     <input
@@ -267,8 +267,8 @@ export function ContactDialog({ isOpen, onClose }: ContactDialogProps) {
 
                   {/* Subject */}
                   <div>
-                    <label className={`mb-1.5 block font-body font-semibold text-[12px] ${theme === 'dark' ? 'text-white/80' : 'text-gray-700'
-                      }`}>
+                    <label className={`mb-1.5 block font-body !font-bold text-[13px] ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+                      }`} style={{ fontWeight: 700 }}>
                       Subject
                     </label>
                     <input
@@ -296,8 +296,8 @@ export function ContactDialog({ isOpen, onClose }: ContactDialogProps) {
 
                   {/* Message */}
                   <div>
-                    <label className={`mb-1.5 block font-body font-semibold text-[12px] ${theme === 'dark' ? 'text-white/80' : 'text-gray-700'
-                      }`}>
+                    <label className={`mb-1.5 block font-body !font-bold text-[13px] ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+                      }`} style={{ fontWeight: 700 }}>
                       Message
                     </label>
                     <textarea

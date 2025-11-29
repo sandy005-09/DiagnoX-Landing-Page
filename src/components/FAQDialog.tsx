@@ -159,8 +159,8 @@ export function FAQDialog({ isOpen, onClose }: FAQDialogProps) {
                       className="w-full text-left py-3 flex items-center justify-between gap-3"
                       whileHover={{ x: 2 }}
                     >
-                      <span className={`font-body font-semibold text-[15px] ${theme === 'dark' ? 'text-[#EDEDED]' : 'text-[#0D0D0D]'
-                        }`}>
+                      <span className={`font-body !font-bold text-[15px] ${theme === 'dark' ? 'text-[#EDEDED]' : 'text-[#0D0D0D]'
+                        }`} style={{ fontWeight: 700 }}>
                         {faq.question}
                       </span>
                       <motion.div
