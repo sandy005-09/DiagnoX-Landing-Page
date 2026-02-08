@@ -94,14 +94,14 @@ function HeroSection() {
         {/* Big Bold Text */}
         <div className="mb-[-264px] flex h-[349px] flex-col items-center justify-between px-[20px] py-0 text-center">
           <div className="h-[302px] w-[1155px]">
-            <AnimatedHeroText text="The Intelligence" delay={0.3} />
-            <AnimatedHeroText text="Behind Every Drive" delay={0.7} />
+            <AnimatedHeroText text="The Intelligence" delay={0.1} />
+            <AnimatedHeroText text="Behind Every Drive" delay={0.3} />
           </div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className={`h-[54px] w-[551px] font-body-semibold text-[16px] leading-[1.3] tracking-normal ${theme === 'dark' ? '' : 'text-black'
               }`}
             style={theme === 'dark' ? {
@@ -120,7 +120,7 @@ function HeroSection() {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.9 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
           className="relative mb-[-264px] flex items-center justify-center"
           style={{
             height: 'calc(1px * ((1780.75 * 0.008380573242902756) + (1186 * 0.9999648928642273)))',
